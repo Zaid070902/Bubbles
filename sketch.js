@@ -7,7 +7,7 @@ function setup() {
   follow = new Child(ball, mouseX, mouseY);
 }
 
-function mouseMoved() {
+function mouseDragged() {
   ball.pos = createVector(mouseX, mouseY);
   for (let i = 0; i < 1; i++) {
     followers.push(new Child(ball, mouseX, mouseY));
