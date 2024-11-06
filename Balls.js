@@ -79,12 +79,12 @@ function Child(ball, x, y) {
     bN = noise(this.pos.x * blue, this.pos.y * blue) * 500;
     Sz = noise(this.pos.x * nsz, this.pos.y * nsz) * 35;
 
-    strokeWeight(1.5);
-    stroke(rN, gN, bN, this.opacity + 20);
-    fill(rN, gN, bN, this.opacity);
-    ellipse(this.pos.x, this.pos.y, Sz);
+    strokeWeight(Sz);
+    stroke(rN, gN, bN, this.opacity);
+    // fill(rN, gN, bN, this.opacity);
+    point(this.pos.x, this.pos.y);
 
-    this.opacity -= .8;
+    this.opacity -= 0.8;
   };
 
   this.applyForce = function (force) {
