@@ -120,7 +120,7 @@ function Child(ball, x, y) {
   this.move = function () {
     this.bigBall = createVector(ball.pos.x, ball.pos.y);
     let pullForce = p5.Vector.sub(this.bigBall, this.pos);
-    pullForce.setMag(0.5);
+    pullForce.setMag(1);
     this.applyForce(pullForce);
 
     this.direction.add(this.acc);
