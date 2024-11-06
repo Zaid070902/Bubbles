@@ -18,7 +18,7 @@ function draw() {
   background(11);
   // blendMode(EXCLUSION);
 
-  let grav = createVector(0, 1);
+  let grav = createVector(0, 0);
 
   // ball.applyForce(grav);
   // ball.move();
