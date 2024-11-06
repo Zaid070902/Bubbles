@@ -125,7 +125,7 @@ function Child(ball, x, y) {
 
     this.direction.add(this.acc);
     this.pos.add(this.direction);
-    this.direction.setMag(7);
+    this.direction.setMag(5);
     this.acc.mult(0);
   };
 
