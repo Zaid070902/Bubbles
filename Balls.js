@@ -72,19 +72,19 @@ function Child(ball, x, y) {
     red = 0.0035;
     green = 0.0085;
     blue = 0.0025;
-    nsz = 0.005;
+    nsz = 0.003;
 
-    rN = noise(this.pos.x * red, this.pos.y * red) *400;
+    rN = noise(this.pos.x * red, this.pos.y * red) * 450;
     gN = noise(this.pos.x * green, this.pos.y * green) * 300;
-    bN = noise(this.pos.x * blue, this.pos.y * blue) * 400;
-    Sz = noise(this.pos.x * nsz, this.pos.y * nsz) * 30;
+    bN = noise(this.pos.x * blue, this.pos.y * blue) * 450;
+    Sz = noise(this.pos.x * nsz, this.pos.y * nsz) * 35;
 
     strokeWeight(1.5);
     stroke(rN, gN, bN, this.opacity + 20);
     fill(rN, gN, bN, this.opacity);
     ellipse(this.pos.x, this.pos.y, Sz);
 
-    this.opacity -= 1;
+    this.opacity -= 0.8;
   };
 
   this.applyForce = function (force) {
@@ -125,16 +125,16 @@ function Child(ball, x, y) {
 
     this.direction.add(this.acc);
     this.pos.add(this.direction);
-    this.direction.setMag(6);
+    this.direction.setMag(7);
     this.acc.mult(0);
   };
 
   this.moveAway = function (child) {
-    let pushZone = 5;
+    let pushZone = 10;
     let dis = p5.Vector.dist(this.pos, child.pos);
     if (dis < pushZone) {
       let pushForce = p5.Vector.sub(this.pos, child.pos);
-      pushForce.setMag(map(dis, 0, pushZone, 8, 0));
+      pushForce.setMag(map(dis, 0, pushZone, 10, 0));
       this.applyForce(pushForce);
     }
   };

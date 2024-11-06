@@ -9,7 +9,7 @@ function setup() {
 
 function mouseMoved() {
   ball.pos = createVector(mouseX, mouseY);
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 1; i++) {
     followers.push(new Child(ball, mouseX, mouseY));
   }
 }
@@ -18,7 +18,7 @@ function draw() {
   background(11);
   // blendMode(EXCLUSION);
 
-  let grav = createVector(0, 0);
+  let grav = createVector(0, 1);
 
   // ball.applyForce(grav);
   // ball.move();
@@ -26,6 +26,8 @@ function draw() {
   // ball.display();
 
   followers = followers.filter((follower) => {
+    follower.applyForce(grav);
+
     follower.move();
     follower.cap();
     follower.display();
@@ -37,6 +39,6 @@ function draw() {
       }
     }
 
-    return follower.opacity > 0; 
+    return follower.opacity > 0;
   });
 }
